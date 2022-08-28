@@ -7,7 +7,8 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body 
+<?php body_class(); ?>>
  <header class="header">
     <a href="<?php echo home_url( '/' ); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/img/screenshot.png" alt="Logo">
@@ -28,7 +29,17 @@ if ( is_user_logged_in() ):
 	</p>
 <?php endif; ?>
 
+<?php body_class( 'site' ); ?>>
 
+  <header class="site__header">
+    <a href="<?php echo home_url( '/' ); ?>">
+      <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo">
+    </a>
+
+    <?php wp_nav_menu( array( 'theme_location' => 'main' ) ); ?>
+  </header>
+
+  <?php get_search_form(); ?>
 
     
     <?php wp_body_open(); ?>
